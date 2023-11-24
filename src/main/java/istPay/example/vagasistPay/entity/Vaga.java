@@ -1,9 +1,7 @@
-package istPay.example.vagasistPay.entite;
+package istPay.example.vagasistPay.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import istPay.example.vagasistPay.tipoContratacaoEnum.TipoContratacaoEnum;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +23,8 @@ public class Vaga implements Serializable {
     private String requisitos;
     private String nivelExperiencia;
     private Date dataPublicacao;
+    @Enumerated(EnumType.STRING)
+    private TipoContratacaoEnum tipoContratacao;
     private boolean ativa;
 
 }

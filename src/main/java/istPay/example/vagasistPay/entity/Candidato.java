@@ -1,4 +1,4 @@
-package istPay.example.vagasistPay.entite;
+package istPay.example.vagasistPay.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
