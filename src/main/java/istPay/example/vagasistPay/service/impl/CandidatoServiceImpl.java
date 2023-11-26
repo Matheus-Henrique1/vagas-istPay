@@ -4,6 +4,7 @@ import istPay.example.vagasistPay.dto.CandidatoDTO;
 import istPay.example.vagasistPay.dto.RetornoPadraoDTO;
 import istPay.example.vagasistPay.dto.VagaDTO;
 import istPay.example.vagasistPay.entity.Candidato;
+import istPay.example.vagasistPay.entity.CandidatoVaga;
 import istPay.example.vagasistPay.entity.Vaga;
 import istPay.example.vagasistPay.repository.CandidatoRepository;
 import istPay.example.vagasistPay.repository.CandidatoVagaRepository;
@@ -58,6 +59,10 @@ public class CandidatoServiceImpl implements CandidatoService {
     @Transactional
     public RetornoPadraoDTO deletar(Long idCandidato) {
         if (Objects.nonNull(candidatoRepository.buscarPorId(idCandidato))) {
+            List<CandidatoVaga> candidatoVagas = candidatoVagaRepository.buscarPorIdCandidato(idCandidato);
+            if (!candidatoVagas.isEmpty()) {
+                candidatoVagaRepository.deleteAll(candidatoVagas);
+            }
             candidatoRepository.deleteById(idCandidato);
             return Utils.retornoPadrao(Mensagens.SUCESSO_DELETAR_CANDIDATO);
         } else {
@@ -74,7 +79,6 @@ public class CandidatoServiceImpl implements CandidatoService {
                     candidatoDTOS.add(entidadeParaDTO(new CandidatoDTO(), c, candidatoVagaRepository.buscarVagasPorCandidato(c.getId())));
                 }
         );
-
         return candidatoDTOS;
     }
 
@@ -85,6 +89,12 @@ public class CandidatoServiceImpl implements CandidatoService {
         if (candidatos.isEmpty()) {
             return Utils.retornoPadrao(Mensagens.NAO_EXISTE_CANDIDATOS_PARA_DELETAR);
         } else {
+            candidatos.forEach(candidato -> {
+                List<CandidatoVaga> candidatoVagas = candidatoVagaRepository.buscarPorIdCandidato(candidato.getId());
+                if (!candidatoVagas.isEmpty()) {
+                    candidatoVagaRepository.deleteAll(candidatoVagas);
+                }
+            });
             candidatoRepository.deleteAll(candidatos);
             return Utils.retornoPadrao(Mensagens.SUCESSO_DELETAR_TODOS_CANDIDATOS);
         }

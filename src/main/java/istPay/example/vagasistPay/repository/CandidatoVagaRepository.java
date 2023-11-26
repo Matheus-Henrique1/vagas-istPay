@@ -13,4 +13,10 @@ public interface CandidatoVagaRepository extends JpaRepository<CandidatoVaga, Ca
     @Query("SELECT v FROM CandidatoVaga cv JOIN cv.vaga v WHERE cv.candidato.id = :idCandidato")
     List<Vaga> buscarVagasPorCandidato(Long idCandidato);
 
+    @Query("SELECT cv FROM CandidatoVaga cv WHERE cv.candidato.id = :idCandidato")
+    List<CandidatoVaga> buscarPorIdCandidato(Long idCandidato);
+
+    @Query("SELECT cv FROM CandidatoVaga cv WHERE cv.vaga.id = :idVaga")
+    List<CandidatoVaga> buscarPorIdVaga(Long idVaga);
+
 }

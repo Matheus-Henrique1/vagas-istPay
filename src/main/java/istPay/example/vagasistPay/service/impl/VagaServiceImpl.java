@@ -2,7 +2,9 @@ package istPay.example.vagasistPay.service.impl;
 
 import istPay.example.vagasistPay.dto.RetornoPadraoDTO;
 import istPay.example.vagasistPay.dto.VagaDTO;
+import istPay.example.vagasistPay.entity.CandidatoVaga;
 import istPay.example.vagasistPay.entity.Vaga;
+import istPay.example.vagasistPay.repository.CandidatoVagaRepository;
 import istPay.example.vagasistPay.repository.VagaRepository;
 import istPay.example.vagasistPay.service.VagaService;
 import istPay.example.vagasistPay.utils.Mensagens;
@@ -18,10 +20,12 @@ import java.util.Objects;
 public class VagaServiceImpl implements VagaService {
 
     private VagaRepository vagaRepository;
+    private CandidatoVagaRepository candidatoVagaRepository;
 
     @Autowired
-    public VagaServiceImpl(VagaRepository vagaRepository) {
+    public VagaServiceImpl(VagaRepository vagaRepository, CandidatoVagaRepository candidatoVagaRepository) {
         this.vagaRepository = vagaRepository;
+        this.candidatoVagaRepository = candidatoVagaRepository;
     }
 
     @Override
@@ -47,6 +51,10 @@ public class VagaServiceImpl implements VagaService {
     @Transactional
     public RetornoPadraoDTO deletar(Long idVaga) {
         if (Objects.nonNull(vagaRepository.buscarPorId(idVaga))) {
+            List<CandidatoVaga> candidatoVagas = candidatoVagaRepository.buscarPorIdVaga(idVaga);
+            if (!candidatoVagas.isEmpty()) {
+                candidatoVagaRepository.deleteAll(candidatoVagas);
+            }
             vagaRepository.deleteById(idVaga);
             return Utils.retornoPadrao(Mensagens.SUCESSO_DELETAR_VAGA);
         } else {
@@ -98,6 +106,12 @@ public class VagaServiceImpl implements VagaService {
         if (vagas.isEmpty()) {
             return Utils.retornoPadrao(Mensagens.NAO_EXISTE_VAGAS_PARA_DELETAR);
         } else {
+            vagas.forEach(vaga -> {
+                List<CandidatoVaga> candidatoVagas = candidatoVagaRepository.buscarPorIdVaga(vaga.getId());
+                if (!candidatoVagas.isEmpty()) {
+                    candidatoVagaRepository.deleteAll(candidatoVagas);
+                }
+            });
             vagaRepository.deleteAll(vagas);
             return Utils.retornoPadrao(Mensagens.SUCESSO_DELETAR_TODAS_VAGAS);
         }
