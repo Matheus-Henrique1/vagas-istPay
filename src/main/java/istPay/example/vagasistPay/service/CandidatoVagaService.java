@@ -1,8 +1,9 @@
 package istPay.example.vagasistPay.service;
 
 import istPay.example.vagasistPay.dto.CandidatoVagaDTO;
+import istPay.example.vagasistPay.dto.RetornoPadraoDTO;
 
 public interface CandidatoVagaService {
 
-    String inscricaoVaga(CandidatoVagaDTO dto);
+    RetornoPadraoDTO inscricaoVaga(CandidatoVagaDTO dto);
 }

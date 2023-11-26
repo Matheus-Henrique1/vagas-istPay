@@ -34,5 +34,4 @@ public class VagaDTO implements Serializable {
     private TipoContratacaoEnum tipoContratacao;
     private String observacao;
     private boolean ativa;
-
 }

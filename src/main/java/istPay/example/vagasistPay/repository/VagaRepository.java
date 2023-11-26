@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 public interface VagaRepository extends JpaRepository<Vaga, Long> {
 
     @Query("SELECT v FROM Vaga v WHERE v.id = :id")
-    Vaga findByIdNoOptional(@Param("id") Long id);
+    Vaga buscarPorId(@Param("id") Long id);
 
     @Transactional
     @Modifying

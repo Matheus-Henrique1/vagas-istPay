@@ -10,6 +10,9 @@ import java.util.Optional;
 public interface CandidatoRepository extends JpaRepository<Candidato, Long> {
 
     @Query("SELECT c FROM Candidato c WHERE c.cpf = :cpf OR c.rg = :rg")
-    Optional<Candidato> findByCpfOrRg(@Param("cpf") String cpf, @Param("rg") String rg);
+    Optional<Candidato> buscarPorCPFOuRG(@Param("cpf") String cpf, @Param("rg") String rg);
+
+    @Query("SELECT c FROM Candidato c WHERE c.id = :id")
+    Candidato buscarPorId(@Param("id") Long id);
 
 }

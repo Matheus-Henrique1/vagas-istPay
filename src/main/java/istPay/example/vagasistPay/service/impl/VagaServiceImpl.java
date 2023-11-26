@@ -36,7 +36,7 @@ public class VagaServiceImpl implements VagaService {
     @Transactional
     public RetornoPadraoDTO atualizar(VagaDTO dto) {
         dto.setAtiva(Boolean.TRUE);
-        Vaga vaga = vagaRepository.findByIdNoOptional(dto.getId());
+        Vaga vaga = vagaRepository.buscarPorId(dto.getId());
         if (Objects.isNull(vaga)) {
             return Utils.retornoPadrao(Mensagens.NAO_LOCALIZADA_ATUALIZAR_VAGA);
         }
@@ -46,8 +46,7 @@ public class VagaServiceImpl implements VagaService {
     @Override
     @Transactional
     public RetornoPadraoDTO deletar(Long idVaga) {
-
-        if (Objects.nonNull(vagaRepository.findByIdNoOptional(idVaga))) {
+        if (Objects.nonNull(vagaRepository.buscarPorId(idVaga))) {
             vagaRepository.deleteById(idVaga);
             return Utils.retornoPadrao(Mensagens.SUCESSO_DELETAR_VAGA);
         } else {
@@ -68,7 +67,7 @@ public class VagaServiceImpl implements VagaService {
     @Override
     @Transactional
     public RetornoPadraoDTO congelarVaga(Long idVaga) {
-        Vaga vaga = vagaRepository.findByIdNoOptional(idVaga);
+        Vaga vaga = vagaRepository.buscarPorId(idVaga);
         if (Objects.isNull(vaga)) {
             return Utils.retornoPadrao(Mensagens.NAO_LOCALIZADA_CONGELAR_VAGA);
         } else {
@@ -80,7 +79,7 @@ public class VagaServiceImpl implements VagaService {
     @Override
     @Transactional
     public RetornoPadraoDTO reativarVaga(Long idVaga) {
-        Vaga vaga = vagaRepository.findByIdNoOptional(idVaga);
+        Vaga vaga = vagaRepository.buscarPorId(idVaga);
         if (Objects.isNull(vaga)) {
             return Utils.retornoPadrao(Mensagens.NAO_LOCALIZADA_REATIVAR_VAGA);
         } else {
@@ -99,7 +98,7 @@ public class VagaServiceImpl implements VagaService {
         if (vagas.isEmpty()) {
             return Utils.retornoPadrao(Mensagens.NAO_EXISTE_VAGAS_PARA_DELETAR);
         } else {
-            vagaRepository.deleteAll();
+            vagaRepository.deleteAll(vagas);
             return Utils.retornoPadrao(Mensagens.SUCESSO_DELETAR_TODAS_VAGAS);
         }
     }

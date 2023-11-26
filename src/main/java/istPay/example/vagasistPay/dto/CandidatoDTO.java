@@ -1,6 +1,6 @@
 package istPay.example.vagasistPay.dto;
 
-import istPay.example.vagasistPay.entity.Vaga;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -10,13 +10,15 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CandidatoDTO implements Serializable {
 
     private Long id;
@@ -30,6 +32,6 @@ public class CandidatoDTO implements Serializable {
     @NotNull(message = "{campo.dat-nascimento.obrigatorio}")
     private Date dtNascimento;
     private String experienciasProfissionais;
-    private Set<Vaga> vagas;
+    private List<VagaDTO> vagas = new ArrayList<>();
 
 }
