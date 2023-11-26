@@ -92,6 +92,18 @@ public class VagaServiceImpl implements VagaService {
         }
     }
 
+    @Override
+    @Transactional
+    public RetornoPadraoDTO deletarTodasVagas() {
+        List<Vaga> vagas = vagaRepository.findAll();
+        if (vagas.isEmpty()) {
+            return Utils.retornoPadrao(Mensagens.NAO_EXISTE_VAGAS_PARA_DELETAR);
+        } else {
+            vagaRepository.deleteAll();
+            return Utils.retornoPadrao(Mensagens.SUCESSO_DELETAR_TODAS_VAGAS);
+        }
+    }
+
     private Vaga dtoParaEntidade(Vaga vaga, VagaDTO dto) {
         return vaga.builder()
                 .id(dto.getId())

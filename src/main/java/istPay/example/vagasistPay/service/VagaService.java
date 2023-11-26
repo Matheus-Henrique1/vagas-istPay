@@ -18,4 +18,6 @@ public interface VagaService {
     RetornoPadraoDTO congelarVaga(Long idVaga);
 
     RetornoPadraoDTO reativarVaga(Long idVaga);
+
+    RetornoPadraoDTO deletarTodasVagas();
 }

@@ -78,4 +78,13 @@ public class VagaController {
         }
     }
 
+    @DeleteMapping
+    public ResponseEntity<RetornoPadraoDTO> deletarTodasVagas() {
+        try {
+            return new ResponseEntity<>(vagaService.deletarTodasVagas(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(Utils.retornoPadrao(Mensagens.ERRO_DELETAR_TODAS_VAGAS), HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }

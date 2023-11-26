@@ -18,4 +18,8 @@ public class Mensagens {
     public static final String SUCESSO_REATIVAR_VAGA = "Vaga reativada com sucesso!";
     public static final String ERRO_REATIVAR_VAGA = "Erro ao tentar reativar vaga.";
     public static final String JA_ATIVA_VAGA = "Vaga já esta ativa!";
+    public static final String SUCESSO_DELETAR_TODAS_VAGAS = "Todas as vagas foram deletadas com sucesso!";
+    public static final String NAO_EXISTE_VAGAS_PARA_DELETAR = "Não existem vagas para serem deletas em nosso sitema.";
+    public static final String ERRO_DELETAR_TODAS_VAGAS = "Erro ao tentar deletar todas as vagas.";
+
 }
