@@ -6,6 +6,7 @@ import istPay.example.vagasistPay.entity.Candidato;
 import istPay.example.vagasistPay.repository.CandidatoRepository;
 import istPay.example.vagasistPay.service.CandidatoService;
 import istPay.example.vagasistPay.utils.Utils;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,10 +23,11 @@ public class CandidatoServiceImpl implements CandidatoService {
     }
 
     @Override
+    @Transactional
     public RetornoPadraoDTO cadastrar(CandidatoDTO dto) {
 
-        Optional<Candidato> teste = candidatoRepository.findByCpfOrRg(dto.getCpf(), dto.getRg());
-        if (!teste.isEmpty()) {
+        Optional<Candidato> candidatoExiste = candidatoRepository.findByCpfOrRg(dto.getCpf(), dto.getRg());
+        if (!candidatoExiste.isEmpty()) {
             return Utils.retornoPadrao("Já existe um candidato cadastrado no sistema com esse CPF ou RG.");
         }
         Candidato candidato = dtoParaEntidade(new Candidato(), dto);
