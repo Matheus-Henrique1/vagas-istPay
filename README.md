@@ -13,3 +13,5 @@ O projeto possui apenas backend então sera necessario o uso da ferramenta postm
 3. **Fazer os testes via postman**
 
 Projeto possui documentação, após iniciar a aplicação entrar na url http://localhost:8080/swagger-ui/index.html
+
+Para testes via postman, coloquei uma collection dentro do diretorio etc.

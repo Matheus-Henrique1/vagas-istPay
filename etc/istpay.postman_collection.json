@@ -1,0 +1,355 @@
+{
+	"info": {
+		"_postman_id": "05092033-3c56-479d-9ad0-ec45f025454b",
+		"name": "istpay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17812000"
+	},
+	"item": [
+		{
+			"name": "Vaga Cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"nomeEmpresa\": \"COCA COLA\",\r\n    \"numeroDeVagas\":\"1\",\r\n    \"titulo\": \"AAAAa\",\r\n    \"descricao\": \"AAA\",\r\n    \"requisitos\": \"AAA\",\r\n    \"nivelExperiencia\": \"AAA\",\r\n    \"dataPublicacao\": \"2023-11-30\",\r\n    \"tipoContratacao\": \"CLT\",\r\n    \"observacao\": \"testeeeeeeeee\",\r\n    \"ativa\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vaga",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaga"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vaga Deletar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Dada Maravilha\",\r\n    \"cpf\": \"874.306.630-52\",\r\n    \"login\": \"dada@gmail.com\",\r\n    \"password\": \"dada\",\r\n    \"role\": \"ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vaga/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaga",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vaga Deletar todas",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Dada Maravilha\",\r\n    \"cpf\": \"874.306.630-52\",\r\n    \"login\": \"dada@gmail.com\",\r\n    \"password\": \"dada\",\r\n    \"role\": \"ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vaga/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaga",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vaga Atualizar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"nomeEmpresa\": \"BBB\",\r\n    \"numeroDeVagas\":\"1\",\r\n    \"titulo\": \"Programador\",\r\n    \"descricao\": \"Fazer testes\",\r\n    \"requisitos\": \"Nada\",\r\n    \"nivelExperiencia\": \"Ser Legal\",\r\n    \"dataPublicacao\": \"2023-11-30\",\r\n    \"tipoContratacao\": \"CLT\",\r\n    \"observacao\": \"TESTE\",\r\n    \"ativa\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vaga",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaga"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Candidato Cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"nome\": \"Matheus\",\r\n    \"rg\": \"32465466\",\r\n    \"cpf\": \"832.642.560-53\",\r\n    \"dtNascimento\": \"2023-12-01\",\r\n    \"experienciasProfissionais\": \"dada\"\r\n    \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/candidato",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"candidato"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Candidato Buscar Todos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"nome\": \"Matheus\",\r\n    \"rg\": \"32465466\",\r\n    \"cpf\": \"832.642.560-53\",\r\n    \"dtNascimento\": \"2023-12-01\",\r\n    \"experienciasProfissionais\": \"dada\"\r\n    \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/candidato",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"candidato"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Candidato Atualizar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"nome\": \"Matheus\",\r\n    \"rg\": \"32465466\",\r\n    \"cpf\": \"832.642.560-53\",\r\n    \"dtNascimento\": \"2023-12-01\",\r\n    \"experienciasProfissionais\": \"dada\"\r\n    \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/candidato",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"candidato"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Candidato Deletar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"nome\": \"Matheus\",\r\n    \"rg\": \"32465466\",\r\n    \"cpf\": \"832.642.560-53\",\r\n    \"dtNascimento\": \"2023-12-01\",\r\n    \"experienciasProfissionais\": \"dada\"\r\n    \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/candidato",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"candidato"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Candidato Deletar todos",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"nome\": \"Matheus\",\r\n    \"rg\": \"32465466\",\r\n    \"cpf\": \"832.642.560-53\",\r\n    \"dtNascimento\": \"2023-12-01\",\r\n    \"experienciasProfissionais\": \"dada\"\r\n    \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/candidato",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"candidato"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inscricao Cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCandidato\": 1,\r\n    \"idVaga\": 3\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/inscricao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inscricao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vaga Buscar Todas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vaga",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaga"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vaga Congelar",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vaga/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaga",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vaga Reativar",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vaga/reativar/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaga",
+						"reativar",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
