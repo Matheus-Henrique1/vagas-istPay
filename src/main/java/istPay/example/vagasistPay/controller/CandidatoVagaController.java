@@ -1,5 +1,6 @@
 package istPay.example.vagasistPay.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import istPay.example.vagasistPay.dto.CandidatoVagaDTO;
 import istPay.example.vagasistPay.dto.RetornoPadraoDTO;
 import istPay.example.vagasistPay.service.CandidatoVagaService;
@@ -23,6 +24,7 @@ public class CandidatoVagaController {
     }
 
     @PostMapping
+    @Operation(summary = "Endpoint responsável por fazer a inscricao do candidato na vaga.")
     public ResponseEntity<RetornoPadraoDTO> cadastrar(@RequestBody CandidatoVagaDTO dto) {
         try {
             return new ResponseEntity<>(candidatoVagaService.inscricaoVaga(dto), HttpStatus.OK);

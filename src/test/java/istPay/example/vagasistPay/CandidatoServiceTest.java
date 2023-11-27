@@ -25,12 +25,11 @@ public class CandidatoServiceTest {
             dto.builder()
                 .id(null)
                 .nome("Igor Gomes")
-                .cpf("999.999.999-80")
-                .rg("321546")
+                .cpf("126.311.240-49")
+                .rg("39.181.142-3")
                 .experienciasProfissionais("TESTE")
                 .build();
         RetornoPadraoDTO retorno = candidatoService.cadastrar(dto);
-
         Assert.assertEquals(retorno.getMensagem(), "Candidato cadastrado com sucesso!");
     }
 

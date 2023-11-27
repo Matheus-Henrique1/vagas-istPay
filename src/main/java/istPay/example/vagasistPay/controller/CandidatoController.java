@@ -1,5 +1,6 @@
 package istPay.example.vagasistPay.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import istPay.example.vagasistPay.dto.CandidatoDTO;
 import istPay.example.vagasistPay.dto.RetornoPadraoDTO;
 import istPay.example.vagasistPay.service.CandidatoService;
@@ -25,6 +26,7 @@ public class CandidatoController {
     }
 
     @PostMapping
+    @Operation(summary = "Endpoint responsável por cadastrar candidato.")
     public ResponseEntity<RetornoPadraoDTO> cadastrar(@Valid @RequestBody CandidatoDTO dto) {
         try {
             return new ResponseEntity<>(candidatoService.cadastrar(dto), HttpStatus.CREATED);
@@ -34,6 +36,7 @@ public class CandidatoController {
     }
 
     @PutMapping
+    @Operation(summary = "Endpoint responsável por atualizar candidato.")
     public ResponseEntity<RetornoPadraoDTO> atualizar(@Valid @RequestBody CandidatoDTO dto) {
         try {
             return new ResponseEntity<>(candidatoService.atualizar(dto), HttpStatus.OK);
@@ -43,6 +46,7 @@ public class CandidatoController {
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Endpoint responsável por deletar candidato.")
     public ResponseEntity<RetornoPadraoDTO> deletar(@PathVariable("id") Long idCandidato) {
         try {
             return new ResponseEntity<>(candidatoService.deletar(idCandidato), HttpStatus.OK);
@@ -52,6 +56,7 @@ public class CandidatoController {
     }
 
     @GetMapping
+    @Operation(summary = "Endpoint responsável por buscar todos candidatos.")
     public ResponseEntity<List<CandidatoDTO>> buscarTodosCandidatos() throws Exception {
         try {
             return new ResponseEntity<>(candidatoService.buscarTodosCandidatos(), HttpStatus.OK);
@@ -61,6 +66,7 @@ public class CandidatoController {
     }
 
     @DeleteMapping
+    @Operation(summary = "Endpoint responsável por deletar todos candidatos.")
     public ResponseEntity<RetornoPadraoDTO> deletarTodosCandidatos() {
         try {
             return new ResponseEntity<>(candidatoService.deletarTodosCandidatos(), HttpStatus.OK);

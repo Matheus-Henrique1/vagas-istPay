@@ -1,5 +1,6 @@
 package istPay.example.vagasistPay.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import istPay.example.vagasistPay.dto.RetornoPadraoDTO;
 import istPay.example.vagasistPay.dto.VagaDTO;
 import istPay.example.vagasistPay.service.VagaService;
@@ -25,6 +26,7 @@ public class VagaController {
     }
 
     @PostMapping
+    @Operation(summary = "Endpoint responsável por cadastrar vaga.")
     public ResponseEntity<RetornoPadraoDTO> cadastrar(@Valid @RequestBody VagaDTO dto) {
         try {
             return new ResponseEntity<>(vagaService.cadastrar(dto), HttpStatus.CREATED);
@@ -34,6 +36,7 @@ public class VagaController {
     }
 
     @PutMapping
+    @Operation(summary = "Endpoint responsável por atualizar vaga.")
     public ResponseEntity<RetornoPadraoDTO> atualizar(@Valid @RequestBody VagaDTO dto) {
         try {
             return new ResponseEntity<>(vagaService.atualizar(dto), HttpStatus.OK);
@@ -43,6 +46,7 @@ public class VagaController {
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Endpoint responsável por deletar vaga.")
     public ResponseEntity<RetornoPadraoDTO> deletar(@PathVariable("id") Long idVaga) {
         try {
             return new ResponseEntity<>(vagaService.deletar(idVaga), HttpStatus.OK);
@@ -52,6 +56,7 @@ public class VagaController {
     }
 
     @GetMapping
+    @Operation(summary = "Endpoint responsável por buscar todas vagas.")
     public ResponseEntity<List<VagaDTO>> buscarVagas() throws Exception {
         try {
             return new ResponseEntity<>(vagaService.buscarVagas(), HttpStatus.OK);
@@ -61,6 +66,7 @@ public class VagaController {
     }
 
     @PatchMapping("/{id}")
+    @Operation(summary = "Endpoint responsável por congelar vaga.")
     public ResponseEntity<RetornoPadraoDTO> congelarVaga(@PathVariable("id") Long idVaga) {
         try {
             return new ResponseEntity<>(vagaService.congelarVaga(idVaga), HttpStatus.OK);
@@ -70,6 +76,7 @@ public class VagaController {
     }
 
     @PatchMapping("/reativar/{id}")
+    @Operation(summary = "Endpoint responsável por reativar vaga.")
     public ResponseEntity<RetornoPadraoDTO> reativar(@PathVariable("id") Long idVaga) {
         try {
             return new ResponseEntity<>(vagaService.reativarVaga(idVaga), HttpStatus.OK);
@@ -79,6 +86,7 @@ public class VagaController {
     }
 
     @DeleteMapping
+    @Operation(summary = "Endpoint responsável por deletar todas vagas.")
     public ResponseEntity<RetornoPadraoDTO> deletarTodasVagas() {
         try {
             return new ResponseEntity<>(vagaService.deletarTodasVagas(), HttpStatus.OK);
