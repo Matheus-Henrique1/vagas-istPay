@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS istpay;
+
 CREATE TABLE candidato (
     id_candidato SERIAL PRIMARY KEY,
     nom_candidato VARCHAR(100),
